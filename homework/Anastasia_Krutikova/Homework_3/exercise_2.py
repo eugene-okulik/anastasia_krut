@@ -3,5 +3,5 @@
 x = 10
 y = 12
 
-result = x - y/1 + x*y
+result = x - y / 1 + x * y
 print("Результат формулы x - y / 1 + xy =", result)
