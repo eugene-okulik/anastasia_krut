@@ -17,6 +17,3 @@ my_dict['set'].add('new')
 my_dict['set'].remove(1)
 
 print(my_dict)
-
-
-
