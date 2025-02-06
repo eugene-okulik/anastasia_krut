@@ -10,7 +10,7 @@ print("Вывод последнего элемента ключа tuple: ", my_
 my_dict['list'].append(22)
 my_dict['list'].pop(1)
 
-my_dict['dict']['i am a tuple'] = True
+my_dict['dict'][('i am a tuple',)] = True
 my_dict['dict'].pop('num_1')
 
 my_dict['set'].add('new')
