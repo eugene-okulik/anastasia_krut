@@ -7,4 +7,4 @@ print(f"Максимальная температура: {max(new_temperatures)}
 print(f"Минимальная температура: {min(new_temperatures)}")
 
 average_t = sum(new_temperatures) / len(new_temperatures)
-print(f"Среднаяя температура: {round(average_t, 2)}")
+print(f"Средняя температура: {round(average_t, 2)}")
