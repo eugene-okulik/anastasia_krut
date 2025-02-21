@@ -9,6 +9,7 @@ def fib(limit=100000000):
         number_1, number_2 = number_2, number_1 + number_2
         f_count += 1
 
+
 count = 0
 
 for number in fib(1000000):
@@ -21,4 +22,3 @@ for number in fib(1000000):
         print(number)
     elif count == 100000:
         print(number)
-
