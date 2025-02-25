@@ -73,7 +73,7 @@ class Buket:
         return [flower.name for flower in sorted_flowers]
 
     def search_color(self, color):
-            return [flower.name for flower in self.flowers_list if flower.color == color]
+        return [flower.name for flower in self.flowers_list if flower.color == color]
 
 
 my_buket = Buket()
