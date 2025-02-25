@@ -2,14 +2,14 @@ class Flowers:
 
     def __init__(self, name, length, color, time_life, fresh, price):
         self.name = name
-        self.width = length
+        self.length = length
         self.color = color
         self.time_life = time_life
         self.fresh = fresh
         self.price = price
 
     def __repr__(self):
-        return f"{self.name}, цвет: {self.color}, цена: {self.price}"
+        return f"{self.name}"
 
 
 class Rose(Flowers):
@@ -54,19 +54,26 @@ class Buket:
         return time_life_buket
 
     def sort_buket_price(self):
-        return sorted(flower.price for flower in self.flowers_list)
+        sorted_flowers = sorted(self.flowers_list, key=lambda flower: flower.price)
+        return [flower.name for flower in sorted_flowers]
+        # for flower in sorted_flowers:
+        #     print(flower.name)
 
     def sort_buket_fresh(self):
-        return sorted(flower.fresh for flower in self.flowers_list)
+        sorted_flowers = sorted(self.flowers_list, key=lambda flower: flower.fresh)
+        return [flower.name for flower in sorted_flowers]
+        # return sorted(flower.fresh for flower in self.flowers_list)
 
-    def sort_buket_width(self):
-        return sorted(flower.width for flower in self.flowers_list)
+    def sort_buket_length(self):
+        sorted_flowers = sorted(self.flowers_list, key=lambda flower: flower.length)
+        return [flower.name for flower in sorted_flowers]
 
     def sort_buket_color(self):
-        return sorted(flower.color for flower in self.flowers_list)
+        sorted_flowers = sorted(self.flowers_list, key=lambda flower: flower.color)
+        return [flower.name for flower in sorted_flowers]
 
     def search_color(self, color):
-        return [flower.name for flower in self.flowers_list if flower.color == color]
+            return [flower.name for flower in self.flowers_list if flower.color == color]
 
 
 my_buket = Buket()
@@ -85,7 +92,7 @@ print(my_buket.time_life())
 
 print(my_buket.sort_buket_price())
 print(my_buket.sort_buket_fresh())
-print(my_buket.sort_buket_width())
+print(my_buket.sort_buket_length())
 print(my_buket.sort_buket_color())
 
 print(my_buket.search_color('жёлтый'))
