@@ -15,49 +15,49 @@ cursor = db.cursor(dictionary=True)
 
 cursor.execute("INSERT INTO students (name, second_name) VALUES ('Thomas', 'Andersen')")
 student_id = cursor.lastrowid
-#print(student_id)
+# print(student_id)
 
 cursor.execute(f"INSERT INTO books (title, taken_by_student_id) VALUES ('Matrix_1', {student_id})")
 book_id_1 = cursor.lastrowid
-#print(book_id_1)
+# print(book_id_1)
 
 cursor.execute(f"INSERT INTO books (title, taken_by_student_id) VALUES ('Matrix_2', {student_id})")
 book_id_2 = cursor.lastrowid
-#print(book_id_2)
+# print(book_id_2)
 
 cursor.execute(f"INSERT INTO books (title, taken_by_student_id) VALUES ('Matrix_3', {student_id})")
 book_id_3 = cursor.lastrowid
-#print(book_id_3)
+# print(book_id_3)
 
 cursor.execute("INSERT INTO `groups` (title, start_date, end_date) VALUES ('Zion', 1999, 2003)")
 group_id = cursor.lastrowid
-#print(group_id)
+# print(group_id)
 
 cursor.execute(f"UPDATE students SET group_id = {group_id} WHERE id = {student_id}")
 
 cursor.execute("INSERT INTO subjets (title) VALUES ('jiu jitsu')")
 subject_1 = cursor.lastrowid
-#print(subject_1)
+# print(subject_1)
 
 cursor.execute("INSERT INTO subjets (title) VALUES ('karate')")
 subject_2 = cursor.lastrowid
-#print(subject_2)
+# print(subject_2)
 
 cursor.execute(f"INSERT INTO lessons (title, subject_id) VALUES ('jiu jitsu lesson_1', {subject_1})")
 lesson_jj_1 = cursor.lastrowid
-#print(lesson_jj_1)
+# print(lesson_jj_1)
 
 cursor.execute(f"INSERT INTO lessons (title, subject_id) VALUES ('jiu jitsu lesson_2', {subject_1})")
 lesson_jj_2 = cursor.lastrowid
-#print(lesson_jj_2)
+# print(lesson_jj_2)
 
 cursor.execute(f"INSERT INTO lessons (title, subject_id) VALUES ('karate lesson_1', {subject_2})")
 lesson_kar_1 = cursor.lastrowid
-#print(lesson_kar_1)
+# print(lesson_kar_1)
 
 cursor.execute(f"INSERT INTO lessons (title, subject_id) VALUES ('karate lesson_2', {subject_2})")
 lesson_kar_2 = cursor.lastrowid
-#print(lesson_kar_2)
+# print(lesson_kar_2)
 
 insert_marks = "INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)"
 cursor.executemany(
@@ -78,8 +78,7 @@ print(cursor.fetchall())
 cursor.execute(f'SELECT title FROM books WHERE taken_by_student_id = {student_id}')
 print(cursor.fetchall())
 
-select_query = '''
-SELECT * 
+select_query = '''SELECT * 
 FROM students s
 join `groups`g ON s.group_id = g.id
 join books b ON s.id = b.taken_by_student_id
