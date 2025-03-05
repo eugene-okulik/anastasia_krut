@@ -79,7 +79,7 @@ cursor.execute(f'SELECT title FROM books WHERE taken_by_student_id = {student_id
 print(cursor.fetchall())
 
 select_query = '''
-SELECT * 
+SELECT *
 FROM students s
 join `groups`g ON s.group_id = g.id
 join books b ON s.id = b.taken_by_student_id
