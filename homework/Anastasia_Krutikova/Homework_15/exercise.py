@@ -17,17 +17,14 @@ cursor.execute("INSERT INTO students (name, second_name) VALUES ('Thomas', 'Ande
 student_id = cursor.lastrowid
 # print(student_id)
 
-cursor.execute(f"INSERT INTO books (title, taken_by_student_id) VALUES ('Matrix_1', {student_id})")
-book_id_1 = cursor.lastrowid
-# print(book_id_1)
-
-cursor.execute(f"INSERT INTO books (title, taken_by_student_id) VALUES ('Matrix_2', {student_id})")
-book_id_2 = cursor.lastrowid
-# print(book_id_2)
-
-cursor.execute(f"INSERT INTO books (title, taken_by_student_id) VALUES ('Matrix_3', {student_id})")
-book_id_3 = cursor.lastrowid
-# print(book_id_3)
+insert_books = "INSERT INTO books (title, taken_by_student_id) VALUES (%s, %s)"
+cursor.executemany(
+    insert_books, [
+        ('Matrix_1', student_id),
+        ('Matrix_2', student_id),
+        ('Matrix_3', student_id)
+    ]
+)
 
 cursor.execute("INSERT INTO `groups` (title, start_date, end_date) VALUES ('Zion', 1999, 2003)")
 group_id = cursor.lastrowid
@@ -78,7 +75,7 @@ print(cursor.fetchall())
 cursor.execute(f'SELECT title FROM books WHERE taken_by_student_id = {student_id}')
 print(cursor.fetchall())
 
-select_query = '''
+select_query = f'''
 SELECT *
 FROM students s
 join `groups`g ON s.group_id = g.id
@@ -86,7 +83,7 @@ join books b ON s.id = b.taken_by_student_id
 join marks m ON s.id = m.student_id
 join lessons l ON m.lesson_id = l.id
 join subjets sub ON l.subject_id = sub.id
-WHERE s.id = 4761
+WHERE s.id = {student_id}
 '''
 
 cursor.execute(select_query)
