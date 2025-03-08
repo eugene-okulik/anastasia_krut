@@ -36,7 +36,7 @@ with open(file_path, newline='') as csv_file:
 print(data)
 
 query = '''
-SELECT s.name, s.second_name, g.title as group_title, b.title as book_title, sub.title as subject_title, 
+SELECT s.name, s.second_name, g.title as group_title, b.title as book_title, sub.title as subject_title,
 l.title as lesson_title, m.value as mark_value
 FROM students s
 JOIN `groups`g ON s.group_id = g.id
@@ -57,6 +57,7 @@ def find_mis_values(data_list, db_list):
         if entry not in db_list:
             missing_values.append(entry)
     return missing_values
+
 
 missing_in_bd = find_mis_values(data, result_db)
 
