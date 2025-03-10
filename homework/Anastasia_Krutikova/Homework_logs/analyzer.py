@@ -1,6 +1,7 @@
 import argparse
 import os
 
+
 # ERROR, WARN
 def parse_arguments():
     parser = argparse.ArgumentParser()
@@ -9,6 +10,7 @@ def parse_arguments():
     # parser.add_argument("--full", help="Full", action="store_true")
     parser.add_argument("--text", help="Text to search")
     return parser.parse_args()
+
 
 def search_in_file(file_path, search_text, filename):
     with open(file_path, 'r') as file:
@@ -38,4 +40,3 @@ def search_logs(log_path, search_text):
 
 args = parse_arguments()
 search_logs(args.file, args.text)
-
