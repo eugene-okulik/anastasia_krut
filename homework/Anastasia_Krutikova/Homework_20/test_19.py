@@ -13,7 +13,7 @@ def new_post_object():
     }
 
     response = requests.post('http://objapi.course.qa-practice.com/object', json=body)
-    post_id =  response.json()['id']
+    post_id = response.json()['id']
 
     yield post_id
 
@@ -51,7 +51,6 @@ def test_one_object(new_post_object):
     ("Julia", "Moscow", 3345622),
     ("Maria", "Sochi", 345567)
 ])
-
 def test_post_object(name, city, zip_code):
     body = {
         "name": name,
