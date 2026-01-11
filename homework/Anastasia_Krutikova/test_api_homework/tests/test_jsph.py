@@ -10,13 +10,13 @@ TEST_DATA = [
         }
     },
 
-{
+    {
         "name": 'Julia',
         "data": {
             "city": 'Moscow',
             "zip": '4456346'
         }
-}
+    }
 ]
 
 TEST_DATA_UPDATE = [
@@ -33,6 +33,7 @@ TEST_PATCH_DATA = [
         }
     }
 ]
+
 
 @pytest.mark.parametrize('data', TEST_DATA)
 def test_post_object(create_post_endpoint, data, delete_a_post):
