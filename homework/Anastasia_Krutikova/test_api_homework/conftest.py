@@ -11,17 +11,21 @@ from .endpoints.patch_post import PatchPost
 def create_post_endpoint():
     return CreatePost()
 
+
 @pytest.fixture()
 def update_post_endpoint():
     return UpdatePost()
+
 
 @pytest.fixture()
 def patch_post_endpoint():
     return PatchPost()
 
+
 @pytest.fixture()
 def get_post_endpoint():
     return GetPost()
+
 
 @pytest.fixture()
 def delete_a_post():

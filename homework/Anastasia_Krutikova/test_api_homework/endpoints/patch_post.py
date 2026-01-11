@@ -3,6 +3,7 @@ import allure
 
 from test_api_homework.endpoints.endpoint import Endpoint
 
+
 class PatchPost(Endpoint):
 
     @allure.step('Patch a post')
