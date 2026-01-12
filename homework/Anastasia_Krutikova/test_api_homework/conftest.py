@@ -1,32 +1,61 @@
 import pytest
 
-from .endpoints.create_post import CreatePost
-from .endpoints.update_post import UpdatePost
-from .endpoints.get_post import GetPost
-from .endpoints.delete_post import DeletePost
-from .endpoints.patch_post import PatchPost
+from .endpoints.create_object import CreateObject
+from .endpoints.update_object import UpdateObject
+from .endpoints.get_object import GetObject
+from .endpoints.delete_object import DeleteObject
+from .endpoints.patch_object import PatchObject
 
 
 @pytest.fixture()
-def create_post_endpoint():
-    return CreatePost()
-
-
-@pytest.fixture()
-def update_post_endpoint():
-    return UpdatePost()
-
+def create_object_endpoint():
+    return CreateObject()
 
 @pytest.fixture()
-def patch_post_endpoint():
-    return PatchPost()
-
-
-@pytest.fixture()
-def get_post_endpoint():
-    return GetPost()
-
+def update_object_endpoint():
+    return UpdateObject()
 
 @pytest.fixture()
-def delete_a_post():
-    return DeletePost()
+def patch_object_endpoint():
+    return PatchObject()
+
+@pytest.fixture()
+def get_object_endpoint():
+    return GetObject()
+
+@pytest.fixture()
+def delete_object_endpoint():
+    return DeleteObject()
+
+@pytest.fixture()
+def create_object_for_delete(create_object_endpoint):
+
+    body = {
+        "name": "Test Object",
+        "data": {
+            "city": "Test City",
+            "zip": "12345"
+        }
+    }
+
+    response = create_object_endpoint.create_new_object(body)
+
+    yield response.json()['id']
+
+@pytest.fixture()
+def object_id(create_object_endpoint, delete_object_endpoint):
+
+    body = {
+        "name": "Test Object",
+        "data": {
+            "city": "Test City",
+            "zip": "12345"
+        }
+    }
+    create_object_endpoint.create_new_object(body)
+
+    object_id = create_object_endpoint.get_object_id()
+
+    yield object_id
+
+    delete_object_endpoint.delete_object_by_id(object_id)
