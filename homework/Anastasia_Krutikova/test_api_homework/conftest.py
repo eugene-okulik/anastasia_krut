@@ -47,6 +47,7 @@ def create_object_for_delete(create_object_endpoint):
 
     yield response.json()['id']
 
+
 @pytest.fixture()
 def object_id(create_object_endpoint, delete_object_endpoint):
 
