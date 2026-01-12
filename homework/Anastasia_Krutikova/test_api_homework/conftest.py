@@ -11,21 +11,26 @@ from .endpoints.patch_object import PatchObject
 def create_object_endpoint():
     return CreateObject()
 
+
 @pytest.fixture()
 def update_object_endpoint():
     return UpdateObject()
+
 
 @pytest.fixture()
 def patch_object_endpoint():
     return PatchObject()
 
+
 @pytest.fixture()
 def get_object_endpoint():
     return GetObject()
 
+
 @pytest.fixture()
 def delete_object_endpoint():
     return DeleteObject()
+
 
 @pytest.fixture()
 def create_object_for_delete(create_object_endpoint):

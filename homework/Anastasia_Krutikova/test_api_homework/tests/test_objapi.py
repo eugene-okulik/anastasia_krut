@@ -34,6 +34,7 @@ TEST_PATCH_DATA = [
     }
 ]
 
+
 @pytest.mark.parametrize('data', TEST_DATA)
 def test_create_object(create_object_endpoint, data):
     create_object_endpoint.create_new_object(data)
