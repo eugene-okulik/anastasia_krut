@@ -14,6 +14,7 @@ def driver():
 
     yield chrome_driver
 
+
 def test_1(driver):
     driver.get('http://testshop.qa-practice.com/')
 
@@ -47,6 +48,7 @@ def test_1(driver):
     text_desk_cart = driver.find_element(By.TAG_NAME, 'h6').text
 
     assert text_desk in text_desk_cart
+
 
 def test_2(driver):
     driver.get('http://testshop.qa-practice.com/')
