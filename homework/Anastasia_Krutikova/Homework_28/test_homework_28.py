@@ -11,7 +11,7 @@ def test_first(page: Page):
     username = page.get_by_role('textbox', name='Username')
     username.fill('Anastasia')
 
-    password = page.get_by_role('textbox', name = 'Password')
+    password = page.get_by_role('textbox', name='Password')
     password.fill('Test')
 
     login_button = page.get_by_role('button', name='Login')
