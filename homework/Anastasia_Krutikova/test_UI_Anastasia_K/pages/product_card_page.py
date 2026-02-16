@@ -2,6 +2,7 @@ from pages.base_page import BasePage
 from pages.locators import product_card_locators as loc
 from playwright.sync_api import expect
 
+
 class ProductCardPage(BasePage):
 
     page_url = 'shop/furn-9999-office-design-software-7?category=9'

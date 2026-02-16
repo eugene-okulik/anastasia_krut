@@ -2,6 +2,7 @@ from pages.base_page import BasePage
 from pages.locators import main_locators as loc
 from playwright.sync_api import expect
 
+
 class MainPage(BasePage):
     page_url = '/'
 
